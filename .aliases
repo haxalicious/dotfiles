@@ -1,0 +1,14 @@
+#
+# ~/.aliases
+#
+
+alias ls='ls --color=auto'
+alias ll='ls -halF'
+alias la='ls -hA'
+alias l='ls -hCF'
+alias ssha='eval "$(ssh-agent)" && ssh-add'
+
+if [[ $LANG = '' ]]; then
+	export LANG=en_US.UTF-8
+fi
+
