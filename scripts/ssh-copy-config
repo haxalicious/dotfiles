@@ -1,0 +1,7 @@
+#!/bin/bash
+# Sets up a host with SSH config and dotfiles.
+# Usage: ssh-copy-config [LOGIN]
+shopt -s dotglob
+ssh-copy-id "$1"
+scp -rp ~/.dotfiles/dotfiles/* ~/.dotfiles/scripts/setup.sh -J "$1": # Copy dotfiles over to target host
+ssh "$1" -t /usr/bin/whoami \| /usr/bin/sudo /bin/bash \~/setup.sh # Pass current user as argument to setup.sh
